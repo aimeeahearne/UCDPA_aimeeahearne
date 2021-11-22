@@ -1,0 +1,543 @@
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+
+
+
+>>> import numpy as np
+>>> months = ['January','February','March','April','May','June']
+>>> months[0]
+'January'
+>>> import pandas as pd
+>>> import csv
+>>> df = pd.read_csv(r'C:\Users\Neil\Desktop\Python\archive.zip\financials.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Neil\\Desktop\\Python\\archive.zip\\financials.csv'
+>>> df = pd.read_csv (r'Path where the CSV file is stored\File name.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'Path where the CSV file is stored\\File name.csv'
+>>> print (df)df = pd.read_csv (r'Path where the CSV file is stored\File name.csv')
+  File "<stdin>", line 1
+    print (df)df = pd.read_csv (r'Path where the CSV file is stored\File name.csv')
+              ^
+SyntaxError: invalid syntax
+>>> print (df)df = pd.read_csv (r'Path where the CSV file is stored\File name.csv')
+  File "<stdin>", line 1
+    print (df)df = pd.read_csv (r'Path where the CSV file is stored\File name.csv')
+              ^
+SyntaxError: invalid syntax
+>>> df = pd.read_csv (r'C:\Users\Neil\Desktop\Python\archive.zip\financials.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Neil\\Desktop\\Python\\archive.zip\\financials.csv'
+>>> print (df)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'df' is not defined
+>>> import pandas as pd
+>>> df = pd.read_csv(r'C:\Users\Neil\Desktop\Python\archive.zip\financials.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Neil\\Desktop\\Python\\archive.zip\\financials.csv'
+>>> df = pd.read_csv (r'C\Users\Neil\Desktop\financials.csv)
+  File "<stdin>", line 1
+    df = pd.read_csv (r'C\Users\Neil\Desktop\financials.csv)
+                                                            ^
+SyntaxError: EOL while scanning string literal
+>>> df=pd.read_csv(r'C\Users\Neil\Desktop\financials.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\base_parser.py", line 222, in _open_handles
+    self.handles = get_handle(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\common.py", line 702, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C\\Users\\Neil\\Desktop\\financials.csv'
+>>> df=pd.read_csv(r’C:\Users\Neil\Downloads\financials.csv')
+  File "<stdin>", line 1
+    df=pd.read_csv(r’C:\Users\Neil\Downloads\financials.csv')
+                    ^
+SyntaxError: invalid character '’' (U+2019)
+>>> df=pd.read_csv(r'C:\Users\Owner\Downloads\data.csv’)
+  File "<stdin>", line 1
+    df=pd.read_csv(r'C:\Users\Owner\Downloads\data.csv’)
+                                                        ^
+SyntaxError: EOL while scanning string literal
+>>> df=pd.read_csv(r'C:\Users\Neil\Downloads\financials.csv')
+>>> nba.info()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nba' is not defined
+>>> sorted_df = df. sort_values(by=["EBITDA"], ascending=False)
+>>> Print(sorted_df)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Print' is not defined
+>>> print(sorted_df)
+    Symbol  ...                                        SEC Filings
+51    AAPL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+..     ...  ...                                                ...
+143   XRAY  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+336    NBL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+229    HES  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+193     FE  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[505 rows x 14 columns]
+>>> sorted_df.to_csv('financials_sorted.csv', index=False)
+>>> sorted1_df = df. sort_values(by=["Earnings/Share"], ascending=False)
+>>> print(sorted1_df)
+    Symbol  ...                                        SEC Filings
+61     AZO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+372   PCLN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+103   CHTR  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+73     BLK  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+..     ...  ...                                                ...
+125    CXO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+193     FE  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+229    HES  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+79     BHF  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+360   PRGO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[505 rows x 14 columns]
+>>>
+>>>
+>>> data_url='http://bit.ly/2cLzoxH'
+>>> >gapminder=pd.read_csv(data_url)
+  File "<stdin>", line 1
+    >gapminder=pd.read_csv(data_url)
+    ^
+SyntaxError: invalid syntax
+>>> gapminder=pd.read_csv(data_url)
+>>> print(gapminder.head(2))
+       country  year        pop continent  lifeExp   gdpPercap
+0  Afghanistan  1952  8425333.0      Asia   28.801  779.445314
+1  Afghanistan  1957  9240934.0      Asia   30.332  820.853030
+>>> print(sorted_df.head(5))
+    Symbol  ...                                        SEC Filings
+51    AAPL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[5 rows x 14 columns]
+>>> index(['Name','Sector','Price','Price/Earnings','EBITDA')
+  File "<stdin>", line 1
+    index(['Name','Sector','Price','Price/Earnings','EBITDA')
+                                                            ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+>>> index(['Name','Sector','Price','Price/Earnings','EBITDA'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'index' is not defined
+>>> sorted_df.head(10)
+    Symbol  ...                                        SEC Filings
+51    AAPL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+27   GOOGL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+28    GOOG  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+480    WMT  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+105    CVX  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+122  CMCSA  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[10 rows x 14 columns]
+>>> list2=[]
+>>> with open(sorted_df) as f:
+... list2=[row.split()[1] for row in f]
+  File "<stdin>", line 2
+    list2=[row.split()[1] for row in f]
+    ^
+IndentationError: expected an indented block
+>>>     list2=[row.split()[1]for row in f]
+  File "<stdin>", line 1
+    list2=[row.split()[1]for row in f]
+IndentationError: unexpected indent
+>>> list2=[row.split[]for row in f]
+  File "<stdin>", line 1
+    list2=[row.split[]for row in f]
+                     ^
+SyntaxError: invalid syntax
+>>> column_select=df.T.head(1).T.
+  File "<stdin>", line 1
+    column_select=df.T.head(1).T.
+                                 ^
+SyntaxError: invalid syntax
+>>> df.iloc[row_start:row_end,col_start,col_end]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'row_start' is not defined
+>>> first_column=df.iloc[:,0]
+>>> first_column=df.iloc[:,:1]
+>>> first_column=df[df.columns[1]]
+>>> print("First Column of Financials: ")
+First Column of Financials:
+>>> print(first_column)
+0                  3M Company
+1             A.O. Smith Corp
+2         Abbott Laboratories
+3                 AbbVie Inc.
+4               Accenture plc
+                ...
+500                Xylem Inc.
+501           Yum! Brands Inc
+502    Zimmer Biomet Holdings
+503             Zions Bancorp
+504                    Zoetis
+Name: Name, Length: 505, dtype: object
+>>> names = ['3M Company','A.O. Smith Corp','Abbott Laboratories','AbbVie Inc.','Accenture plc')
+  File "<stdin>", line 1
+    names = ['3M Company','A.O. Smith Corp','Abbott Laboratories','AbbVie Inc.','Accenture plc')
+                                                                                               ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+>>>  names = ['3M Company','A.O. Smith Corp','Abbott Laboratories','AbbVie Inc.','Accenture plc']
+  File "<stdin>", line 1
+    names = ['3M Company','A.O. Smith Corp','Abbott Laboratories','AbbVie Inc.','Accenture plc']
+IndentationError: unexpected indent
+>>> names = ['3M Company','A.O. Smith Corp','Abbott Laboratories','AbbVie Inc.','Accenture plc']
+>>> print(names)
+['3M Company', 'A.O. Smith Corp', 'Abbott Laboratories', 'AbbVie Inc.', 'Accenture plc']
+>>> print(names[1])
+A.O. Smith Corp
+>>> print(names[-1])
+Accenture plc
+>>> names_bottom_5=['Xylem Inc.','Yum! Brands Inc','Zimmer Biomet Holdings','Zions Bancorp','Zoetis']
+>>> print(names[-1])
+Accenture plc
+>>> print(names_bottom_5[-1])
+Zoetis
+>>> print(names_bottom_5)
+['Xylem Inc.', 'Yum! Brands Inc', 'Zimmer Biomet Holdings', 'Zions Bancorp', 'Zoetis']
+>>> names_subset=names[0:2]
+>>> print(names_subset)
+['3M Company', 'A.O. Smith Corp']
+>>> names_subset=names[0:3]
+>>> print(names_subset)
+['3M Company', 'A.O. Smith Corp', 'Abbott Laboratories']
+>>> column_names(=df[df.columns[1]])
+  File "<stdin>", line 1
+    column_names(=df[df.columns[1]])
+                 ^
+SyntaxError: invalid syntax
+>>> column_names=df[df.columns[1]
+...
+... column_names=df[df.columns[1]]
+  File "<stdin>", line 3
+    column_names=df[df.columns[1]]
+    ^
+SyntaxError: invalid syntax
+>>> names_column=df[df.columns[1]]
+>>> print(names_column)
+0                  3M Company
+1             A.O. Smith Corp
+2         Abbott Laboratories
+3                 AbbVie Inc.
+4               Accenture plc
+                ...
+500                Xylem Inc.
+501           Yum! Brands Inc
+502    Zimmer Biomet Holdings
+503             Zions Bancorp
+504                    Zoetis
+Name: Name, Length: 505, dtype: object
+>>> sector_column=df[df.columns[2]]
+>>> print(sector_column)
+0                 Industrials
+1                 Industrials
+2                 Health Care
+3                 Health Care
+4      Information Technology
+                ...
+500               Industrials
+501    Consumer Discretionary
+502               Health Care
+503                Financials
+504               Health Care
+Name: Sector, Length: 505, dtype: object
+>>> price_column=df[df.columns[4]]
+>>> print(price_column)
+0      24.31
+1      27.76
+2      22.51
+3      19.41
+4      25.47
+       ...
+500    30.94
+501    27.25
+502    14.32
+503    17.73
+504    32.80
+Name: Price/Earnings, Length: 505, dtype: float64
+>>> price_column=df[df.columns[3]]
+>>> print(price_column)
+0      222.89
+1       60.24
+2       56.27
+3      108.48
+4      150.51
+        ...
+500     70.24
+501     76.30
+502    115.53
+503     50.71
+504     71.51
+Name: Price, Length: 505, dtype: float64
+>>>  max_price=max(price_column)
+  File "<stdin>", line 1
+    max_price=max(price_column)
+IndentationError: unexpected indent
+>>> max_price=max(price_column)
+>>> print(max_price_
+... print(max_price)
+  File "<stdin>", line 2
+    print(max_price)
+    ^
+SyntaxError: invalid syntax
+>>> print(max_price)
+1806.06
+>>> eps_column=df[df.columns[6]]
+>>> print(eps_column)
+0      7.92
+1      1.70
+2      0.26
+3      3.29
+4      5.44
+       ...
+500    1.83
+501    4.07
+502    9.01
+503    2.60
+504    1.65
+Name: Earnings/Share, Length: 505, dtype: float64
+>>> max_eps=max(eps_column)
+>>> print(max_eps)
+44.09
+>>> max_eps_name=
+  File "<stdin>", line 1
+    max_eps_name=
+                 ^
+SyntaxError: invalid syntax
+>>>
+>>> eps=df[df.columns[6]]
+>>> print(eps)
+0      7.92
+1      1.70
+2      0.26
+3      3.29
+4      5.44
+       ...
+500    1.83
+501    4.07
+502    9.01
+503    2.60
+504    1.65
+Name: Earnings/Share, Length: 505, dtype: float64
+>>> max_eps=max(eps0
+...
+... max_eps=max(eps)
+  File "<stdin>", line 3
+    max_eps=max(eps)
+    ^
+SyntaxError: invalid syntax
+>>> max_eps=max(eps)
+>>> print(max_eps)
+44.09
+>>> max_index=epx.index(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'epx' is not defined
+>>> max_index=eps.index(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'RangeIndex' object is not callable
+>>> max_index=eps.index(max_eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'RangeIndex' object is not callable
+>>> max_eps=max(eps)
+>>> max_index=eps.index(max_eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'RangeIndex' object is not callable
+>>> max_eps=max(eps)
+>>> max_index=eps.index(max_eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'RangeIndex' object is not callable
+>>> max price=max(prices)
+  File "<stdin>", line 1
+    max price=max(prices)
+        ^
+SyntaxError: invalid syntax
+>>> eps=eps=df[df.columns[6]]
+>>> eps=df[df.columns[6]]
+>>> max_eps=max(eps)
+>>> print(max_eps)
+44.09
+>>> max_index=eps.index(max_eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'RangeIndex' object is not callable
+>>> pip3 install numpy
+  File "<stdin>", line 1
+    pip3 install numpy
+         ^
+SyntaxError: invalid syntax
+>>> import numpy
+>>> my_array=numpy.array([0,1,2,3,4])
+>>> print(my_array)
+[0 1 2 3 4]
+>>> import numpy as np
+>>> array_1=np.array([0,1,2,3,4])
+>>> print(array_1)
+[0 1 2 3 4]
+>>> months_array=np.array(['Jan','Feb','March','Apr','May'])
+>>> print(months_array)
+['Jan' 'Feb' 'March' 'Apr' 'May']
+>>> print(months_array[0:5:2])
+['Jan' 'March' 'May']
+>>> #matplotlip exaomple
+>>> import matplotlip.pyplot as plt
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'matplotlip'
+>>> import matplotlip.pyplot as plt
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'matplotlip'
+>>> import matplotlib.pyplot as plt
+Matplotlib is building the font cache; this may take a moment.
+>>> plt.plot(months, prices)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'prices' is not defined
+>>> plt.plot(names_column,eps)
+[<matplotlib.lines.Line2D object at 0x000001D7EEDF3A90>]
+>>> plt.show()
+>>>
+>>> plt.plot(eps,names_column)
+[<matplotlib.lines.Line2D object at 0x000001D7F2B677C0>]
+>>> plt.show()
+>>> plt.plot(eps,names_column, color='red)
+  File "<stdin>", line 1
+    plt.plot(eps,names_column, color='red)
+                                          ^
+SyntaxError: EOL while scanning string literal
+>>> plt.plot(eps,names_column, color='red')
+[<matplotlib.lines.Line2D object at 0x000001D7F328B700>]
+>>> plt.show()
+>>>
+>>>
+>>> sectors=df[df.columns[2]]
+>>> print(sectors)
+0                 Industrials
+1                 Industrials
+2                 Health Care
+3                 Health Care
+4      Information Technology
+                ...
+500               Industrials
+501    Consumer Discretionary
+502               Health Care
+503                Financials
+504               Health Care
+Name: Sector, Length: 505, dtype: object
+>>> plt.plot(eps,names_column, color='red', linestyle='--')
+[<matplotlib.lines.Line2D object at 0x000001D7F60F9CD0>]
+>>> plt.show()
+>>> #add labels
+>>> plt.xlabel('Earnings Per Share, $')
+Text(0.5, 0, 'Earnings Per Share, $')
+>>> plt.ylabel('Company Name')
+Text(0, 0.5, 'Company Name')
+>>> plt.title('Earnings Per Share top 500 companies index')
+Text(0.5, 1.0, 'Earnings Per Share top 500 companies index')
+>>> plt.show()
+>>> plt.scatter(x=eps, y=names_column, color='green')
+<matplotlib.collections.PathCollection object at 0x000001D7F7946B80>
+>>> plt.show()
+>>>
