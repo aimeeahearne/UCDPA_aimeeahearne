@@ -1,0 +1,149 @@
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> import pandas as pd
+>>> import csv
+>>> df=pd.read_csv(r'C:\Users\Neil\Downloads\financials.csv')
+>>> sorted_EBITDA=df.sort_values(by=["EBITDA"], ascending=FALSE)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'FALSE' is not defined
+>>> print(sorted_EBITDA)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sorted_EBITDA' is not defined
+>>> print(sorted_EBITDA)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sorted_EBITDA' is not defined
+>>> sorted_EBITDA=df.sort_values(by=["EBITDA"], ascending=False)
+>>> print(sorted_EBITDA)
+    Symbol                    Name  ... Price/Book                                        SEC Filings
+51    AAPL              Apple Inc.  ...       5.66  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T                AT&T Inc  ...       1.80  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  Verizon Communications  ...       7.96  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT         Microsoft Corp.  ...       9.49  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM       Exxon Mobil Corp.  ...       1.85  http://www.sec.gov/cgi-bin/browse-edgar?action...
+..     ...                     ...  ...        ...                                                ...
+143   XRAY         Dentsply Sirona  ...       1.80  http://www.sec.gov/cgi-bin/browse-edgar?action...
+336    NBL        Noble Energy Inc  ...       1.44  http://www.sec.gov/cgi-bin/browse-edgar?action...
+229    HES        Hess Corporation  ...       1.08  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN           Allergan, Plc  ...       0.83  http://www.sec.gov/cgi-bin/browse-edgar?action...
+193     FE        FirstEnergy Corp  ...       2.19  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[505 rows x 14 columns]
+>>> import matplotlib.pyplot as plt
+>>> sorted_EPS=df.sort_values(by=["Earnings/Share"], ascending=False)
+>>> print(sorted_EPS)
+    Symbol  ...                                        SEC Filings
+61     AZO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+372   PCLN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+103   CHTR  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+73     BLK  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+..     ...  ...                                                ...
+125    CXO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+193     FE  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+229    HES  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+79     BHF  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+360   PRGO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[505 rows x 14 columns]
+>>> top10_EPS=sorted_EPS.head(10)
+>>> print(top10_EPS)
+    Symbol  ...                                        SEC Filings
+61     AZO  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+372   PCLN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+103   CHTR  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+73     BLK  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+178     RE  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+302    MCK  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+27   GOOGL  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+28    GOOG  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+338    NSC  ...  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[10 rows x 14 columns]
+>>> names=df[df.columns[1]]
+>>> print(names)
+0                  3M Company
+1             A.O. Smith Corp
+2         Abbott Laboratories
+3                 AbbVie Inc.
+4               Accenture plc
+                ...
+500                Xylem Inc.
+501           Yum! Brands Inc
+502    Zimmer Biomet Holdings
+503             Zions Bancorp
+504                    Zoetis
+Name: Name, Length: 505, dtype: object
+>>> names=df[df.columns[10]]
+>>> print(names)
+0      9.048000e+09
+1      6.010000e+08
+2      5.744000e+09
+3      1.031000e+10
+4      5.643228e+09
+           ...
+500    7.220000e+08
+501    2.289000e+09
+502    2.007400e+09
+503    0.000000e+00
+504    1.734000e+09
+Name: EBITDA, Length: 505, dtype: float64
+>>> names=df[df.columns[1]]
+>>> print(names)
+0                  3M Company
+1             A.O. Smith Corp
+2         Abbott Laboratories
+3                 AbbVie Inc.
+4               Accenture plc
+                ...
+500                Xylem Inc.
+501           Yum! Brands Inc
+502    Zimmer Biomet Holdings
+503             Zions Bancorp
+504                    Zoetis
+Name: Name, Length: 505, dtype: object
+>>> top10_names=names.head(10)
+>>> print(top10_names)
+0                    3M Company
+1               A.O. Smith Corp
+2           Abbott Laboratories
+3                   AbbVie Inc.
+4                 Accenture plc
+5           Activision Blizzard
+6             Acuity Brands Inc
+7             Adobe Systems Inc
+8            Advance Auto Parts
+9    Advanced Micro Devices Inc
+Name: Name, dtype: object
+>>> print(top10_names)
+0                    3M Company
+1               A.O. Smith Corp
+2           Abbott Laboratories
+3                   AbbVie Inc.
+4                 Accenture plc
+5           Activision Blizzard
+6             Acuity Brands Inc
+7             Adobe Systems Inc
+8            Advance Auto Parts
+9    Advanced Micro Devices Inc
+Name: Name, dtype: object
+>>>
+>>>
+>>> top10_EPS_company_name=['Autozone Inc','Priceline.com Inc','Allergan, Plc','Charter Communications','Blackrock','Everest Re Group Ltd.','McKesson Corp.','Alphabet Inc Class A','Alphabet Inc Class C','Norfolk Southern Corp.']
+>>> print(top10_EPS_company_name)
+['Autozone Inc', 'Priceline.com Inc', 'Allergan, Plc', 'Charter Communications', 'Blackrock', 'Everest Re Group Ltd.', 'McKesson Corp.', 'Alphabet Inc Class A', 'Alphabet Inc Class C', 'Norfolk Southern Corp.']
+>>> top10_EPS-value=[44.09,42.66,38.35,34.08,30.30,23.71,22.74,22.27,22.27,18.73]
+  File "<stdin>", line 1
+    top10_EPS-value=[44.09,42.66,38.35,34.08,30.30,23.71,22.74,22.27,22.27,18.73]
+    ^
+SyntaxError: cannot assign to operator
+>>> top10_EPS_value=[44.09,42.66,38.35,34.08,30.30,23.71,22.74,22.27,22.27,18.73]
+>>> print(top10_EPS_value)
+[44.09, 42.66, 38.35, 34.08, 30.3, 23.71, 22.74, 22.27, 22.27, 18.73]
+>>> eps_array=np.array([44.09,42.66,38.35,34.08,30.3,23.71,22.74,22.27,22.27,18.73])
+>>> print(eps_array)
+[44.09 42.66 38.35 34.08 30.3  23.71 22.74 22.27 22.27 18.73]
