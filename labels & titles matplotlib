@@ -1,0 +1,157 @@
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> import pandas as pd
+>>> import csv
+>>> df=pd.read_csv(r'C:\Users\Neil\Downloads\financials.csv')
+>>> sorted_EBITDA=df.sort_values(by=["EBITDA"], ascending False)
+  File "<stdin>", line 1
+    sorted_EBITDA=df.sort_values(by=["EBITDA"], ascending False)
+                                                          ^
+SyntaxError: positional argument follows keyword argument
+>>> sorted_EBITDA=df.sort_values(by=["EBITDA"], ascending=False)
+>>> print(sorted_EBITDA)
+    Symbol                    Name  ... Price/Book                                        SEC Filings
+51    AAPL              Apple Inc.  ...       5.66  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T                AT&T Inc  ...       1.80  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  Verizon Communications  ...       7.96  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT         Microsoft Corp.  ...       9.49  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM       Exxon Mobil Corp.  ...       1.85  http://www.sec.gov/cgi-bin/browse-edgar?action...
+..     ...                     ...  ...        ...                                                ...
+143   XRAY         Dentsply Sirona  ...       1.80  http://www.sec.gov/cgi-bin/browse-edgar?action...
+336    NBL        Noble Energy Inc  ...       1.44  http://www.sec.gov/cgi-bin/browse-edgar?action...
+229    HES        Hess Corporation  ...       1.08  http://www.sec.gov/cgi-bin/browse-edgar?action...
+23     AGN           Allergan, Plc  ...       0.83  http://www.sec.gov/cgi-bin/browse-edgar?action...
+193     FE        FirstEnergy Corp  ...       2.19  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[505 rows x 14 columns]
+>>> sorted_EBITDA.head(10)
+    Symbol                    Name  ... Price/Book                                        SEC Filings
+51    AAPL              Apple Inc.  ...       5.66  http://www.sec.gov/cgi-bin/browse-edgar?action...
+58       T                AT&T Inc  ...       1.80  http://www.sec.gov/cgi-bin/browse-edgar?action...
+474     VZ  Verizon Communications  ...       7.96  http://www.sec.gov/cgi-bin/browse-edgar?action...
+311   MSFT         Microsoft Corp.  ...       9.49  http://www.sec.gov/cgi-bin/browse-edgar?action...
+185    XOM       Exxon Mobil Corp.  ...       1.85  http://www.sec.gov/cgi-bin/browse-edgar?action...
+27   GOOGL    Alphabet Inc Class A  ...       4.70  http://www.sec.gov/cgi-bin/browse-edgar?action...
+28    GOOG    Alphabet Inc Class C  ...       4.67  http://www.sec.gov/cgi-bin/browse-edgar?action...
+480    WMT         Wal-Mart Stores  ...       3.89  http://www.sec.gov/cgi-bin/browse-edgar?action...
+105    CVX           Chevron Corp.  ...       1.71  http://www.sec.gov/cgi-bin/browse-edgar?action...
+122  CMCSA           Comcast Corp.  ...       2.65  http://www.sec.gov/cgi-bin/browse-edgar?action...
+
+[10 rows x 14 columns]
+>>> eps=df[df.columns[6]]
+>>> print(eps)
+0      7.92
+1      1.70
+2      0.26
+3      3.29
+4      5.44
+       ...
+500    1.83
+501    4.07
+502    9.01
+503    2.60
+504    1.65
+Name: Earnings/Share, Length: 505, dtype: float64
+>>> max_eps=max(eps)
+>>> print(max_eps)
+44.09
+>>> names=df[df.columns[1]]
+>>> print(names)
+0                  3M Company
+1             A.O. Smith Corp
+2         Abbott Laboratories
+3                 AbbVie Inc.
+4               Accenture plc
+                ...
+500                Xylem Inc.
+501           Yum! Brands Inc
+502    Zimmer Biomet Holdings
+503             Zions Bancorp
+504                    Zoetis
+Name: Name, Length: 505, dtype: object
+>>> plt.plot(names,eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> import matplotlib.pyplot as plt
+>>> plt.plot(names,eps)
+[<matplotlib.lines.Line2D object at 0x0000025906C67400>]
+>>> plt.show()
+>>> top10_comapnies=eps.head(10)
+>>> top10_companies=eps.head(10)
+>>> print(top10_companies)
+0    7.92
+1    1.70
+2    0.26
+3    3.29
+4    5.44
+5    1.28
+6    7.43
+7    3.39
+8    6.19
+9    0.03
+Name: Earnings/Share, dtype: float64
+>>> plt.plot(top10_companies,eps)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\pyplot.py", line 2757, in plot
+    return gca().plot(
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\axes\_axes.py", line 1632, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\axes\_base.py", line 312, in __call__
+    yield from self._plot_args(this, kwargs)
+  File "C:\Users\Neil\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\axes\_base.py", line 498, in _plot_args
+    raise ValueError(f"x and y must have same first dimension, but "
+ValueError: x and y must have same first dimension, but have shapes (10,) and (505,)
+>>> plt.plot(names,eps, color='red')
+[<matplotlib.lines.Line2D object at 0x00000259095D33A0>]
+>>> plt.show()
+>>> sectors=sorted_EBITDA(df.columns[2]]
+  File "<stdin>", line 1
+    sectors=sorted_EBITDA(df.columns[2]]
+                                       ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+>>> sectors=sorted_EBITDA(df.columns[2])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'DataFrame' object is not callable
+>>> plt.scatter(x=names, y=eps, color='green')
+<matplotlib.collections.PathCollection object at 0x0000025909FE1A60>
+>>> plt.show()
+>>> sectors=df[df.columns[2]]
+>>> print(sectors)
+0                 Industrials
+1                 Industrials
+2                 Health Care
+3                 Health Care
+4      Information Technology
+                ...
+500               Industrials
+501    Consumer Discretionary
+502               Health Care
+503                Financials
+504               Health Care
+Name: Sector, Length: 505, dtype: object
+>>> boolean_array=(sectors == 'Health Care')
+>>> print(boolean_array)
+0      False
+1      False
+2       True
+3       True
+4      False
+       ...
+500    False
+501    False
+502     True
+503    False
+504     True
+Name: Sector, Length: 505, dtype: bool
+>>> plt.xlabel('Company Name')
+Text(0.5, 0, 'Company Name')
+>>> plt.ylabel('Earnings per Share, $')
+Text(0, 0.5, 'Earnings per Share, $')
+>>> plt.title('Earnings per Share top 500 S&P Index')
+Text(0.5, 1.0, 'Earnings per Share top 500 S&P Index')
+>>> plt.show()
+>>>
